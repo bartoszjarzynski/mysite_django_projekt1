@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+
+        <h1>{{ post.title }}</h1>
+
+        <div class="post-content">
+            <p>{{ post.content }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+            {% endif %}
+        </div>
+        
+        <h2>Comments</h2>
+        
+        <ul class="comments">
+            {% for comment in comments %}
+                <li>{{ comment.text }}</li>
+            {% endfor %}
+        </ul>
+        
+        <div class="actions">
+            <a href="{% url 'add_comment' post.id %}">Add a comment</a>
+            <a href="{% url 'home_page' %}">Back to home</a>
+        </div
+    
+    </div>
+</body>
+</html>

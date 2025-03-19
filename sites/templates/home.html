@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>Instacrap</h1>
+    </div>
+    <div class="container">
+        <a href="{% url 'add_post' %}">Add a new post</a>
+        <ul>
+            {% for post in posts %}
+                <li><a href="{% url 'post_page' post.id %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
