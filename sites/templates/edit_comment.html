@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Edit Comment</title>
+    <link rel="stylesheet" href="{% static 'sites/styles.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>Edit Comment</h1>
+    </div>
+
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save changes</button>
+        </form>
+
+        <div class="actions">
+            <a href="{% url 'post_page' comment.post.id %}">Back to post</a>
+        </div>
+    </div>
+</body>
+</html>

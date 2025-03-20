@@ -13,7 +13,7 @@ body {
 
 /* Container styles */
 .container, .form-container {
-    width: 60%;
+    width: 100%;
     max-width: 600px;
     padding: 20px;
     background: linear-gradient(to right, #ffffff, #e2e8f0, #cbd5e1);
@@ -40,6 +40,12 @@ body {
     color: #fff;
     top: 0;
     position: absolute;
+}
+
+.header p {
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
 }
 
 .header h1 {
@@ -108,7 +114,7 @@ form p {
 
 form button {
     display: block;
-    width: 100%;
+    width: 50%;
     padding: 10px;
     background-color: #007bff;
     color: #fff;
@@ -116,6 +122,10 @@ form button {
     cursor: pointer;
     font-size: 16px;
     border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
 }
 
 form button:hover {
@@ -136,7 +146,12 @@ form button:hover {
 .form-container input[type="file"],
 .form-container input[type="datetime-local"],
 .search-form input[type="text"],
-.search-form textarea {
+.search-form textarea,
+.login-form input[type="text"],
+.login-form input[type="password"],
+.register-form input[type="text"],
+.register-form input[type="password"],
+.register-form input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -149,7 +164,6 @@ form button:hover {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
     border-radius: 25px;
     box-sizing: border-box;
     text-align: center;
@@ -188,7 +202,7 @@ form button:hover {
 .post-list {
     list-style-type: none;
     padding: 0;
-    width: 100%;
+    width: 75%;
 }
 
 .post-list li {
@@ -196,7 +210,7 @@ form button:hover {
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 25px;
     text-align: center;
 }
 
@@ -205,7 +219,7 @@ form button:hover {
     padding: 10px;
     color: #007bff;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 .post-list li a:hover {
@@ -220,4 +234,27 @@ form button:hover {
     border: 1px solid #ddd;
     border-radius: 25px;
     box-sizing: border-box;
+}
+
+
+.auth-links {
+    background: #fff;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: auto;
+}
+
+.auth-links a {
+    margin: 0 10px;
+}
+
+.hello-user {
+    font-size: 32px;
+    color: #fff;
+    margin: 0;
 }
