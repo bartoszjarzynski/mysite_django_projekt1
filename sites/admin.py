@@ -5,9 +5,10 @@ from .models import Post, Comment
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at')
     search_fields = ('title', 'content')
+    list_filter = ('created_at',)
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('post', 'text', 'created_at')
-    search_fields = ('text',)
+    list_display = ('post', 'name', 'email', 'text', 'created_at')
+    search_fields = ('name', 'email', 'text')
     list_filter = ('created_at',)

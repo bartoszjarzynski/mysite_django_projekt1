@@ -22,7 +22,11 @@
         
         <ul class="comments">
             {% for comment in comments %}
-                <li>{{ comment.text }}</li>
+            <li>
+                <p><strong>{{ comment.name }}</strong> ({{ comment.email }})</p>
+                <p>{{ comment.text }}</p>
+                <p><small>{{ comment.created_at }}</small></p>
+            </li>
             {% endfor %}
         </ul>
         

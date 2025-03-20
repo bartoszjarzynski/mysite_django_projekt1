@@ -6,14 +6,20 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Add a comment to "{{ post.title }}"</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="{% url 'post_page' post.id %}">Back to post</a>
+    <div class="header-name">
+        <h1>Add comment</h1>
+    </div>
+
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="actions">
+            <a href="{% url 'post_page' post.id %}">Back to post</a>
+        </div>
     </div>
 </body>
 </html>

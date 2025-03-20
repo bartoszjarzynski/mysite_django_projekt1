@@ -6,12 +6,18 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <div class="header">
+    <div class="header-name">
         <h1>Instacrap</h1>
     </div>
     <div class="container">
-        <a href="{% url 'add_post' %}">Add a new post</a>
-        <ul>
+
+        <form method="get" action="{% url 'home_page' %}" class="search-form">
+            {{ form.as_p }}
+            <button type="submit">Search</button>
+        </form>
+
+        <a href="{% url 'add_post' %}" class="add-post-link">Add a new post</a>
+        <ul class="post-list">
             {% for post in posts %}
                 <li><a href="{% url 'post_page' post.id %}">{{ post.title }}</a></li>
             {% endfor %}

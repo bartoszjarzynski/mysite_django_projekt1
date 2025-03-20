@@ -2,10 +2,16 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from .PostForm import PostForm
 from .CommentForm import CommentForm
+from .forms import PostSearchForm
 
 def home_page(request):
-    posts = Post.objects.all()
-    return render(request, 'home.html', {'posts': posts})
+    form = PostSearchForm(request.GET or None)
+    query = request.GET.get('query')
+    if query:
+        posts = Post.objects.filter(title__icontains=query)
+    else:
+        posts = Post.objects.all()
+    return render(request, 'home.html', {'posts': posts, 'form': form})
 
 def post_page(request, post_id):
     post = get_object_or_404(Post, id=post_id)

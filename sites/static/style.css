@@ -3,15 +3,18 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     background: linear-gradient(to right, #3b82f6, #6366f1, #db2777);
     justify-content: center;
     align-items: center;
 }
 
-.container {
+/* Container styles */
+.container, .form-container {
     width: 60%;
+    max-width: 600px;
     padding: 20px;
     background: linear-gradient(to right, #ffffff, #e2e8f0, #cbd5e1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -19,48 +22,49 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: 22px;
+    margin-top: 20px;
 }
 
 /* Header styles */
-h1 {
-    color: #333;
+.header {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.header h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header-name {
+    font-size: 48px;
+    margin: 0;
+    color: #fff;
+    top: 0;
     position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 72px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #333;
 }
 
 /* Post styles */
 .post-content {
     margin-bottom: 20px;
     text-align: center;
-    max-width: 75%;
-    max-height: 75%;
 }
 
 img.post-image {
-    max-width: 75%;
-    max-height: 75%;
-    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 /* Comment styles */
 .comments {
     list-style-type: none;
     padding: 0;
-    width: 80%;
-    font-size: 16px;
+    width: 100%;
 }
 
 .comments li {
@@ -127,14 +131,28 @@ form button:hover {
 }
 
 .form-container input[type="text"],
+.form-container input[type="email"],
 .form-container textarea,
-.form-container input[type="file"] {
+.form-container input[type="file"],
+.form-container input[type="datetime-local"],
+.search-form input[type="text"],
+.search-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 25px;
     box-sizing: border-box;
+}
+
+.search-form {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .form-container textarea {
@@ -154,4 +172,52 @@ form button:hover {
     justify-content: center;
     align-items: center;
     margin: 20px 0 0 0;
+}
+
+/* Home page styles */
+.search-form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.add-post-link {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.post-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.post-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.post-list li a {
+    display: block;
+    padding: 10px;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.post-list li a:hover {
+    background-color: #e2e8f0;
+}
+
+/* Dropdown styles */
+.post-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    box-sizing: border-box;
 }
