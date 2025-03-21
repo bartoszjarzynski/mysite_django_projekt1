@@ -301,7 +301,7 @@ a.add-post-link:hover {
         width: 80%;
     }
 }
-
+/*  */
 @media (max-width: 480px) {
     .header-name {
         font-size: 28px;
