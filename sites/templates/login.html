@@ -10,18 +10,16 @@
         <h1>Login</h1>
     </div>
 
-    <div class="form-container">
+    <div class="form-container" style="width: 100%; max-width: 400px;">
         <div>
             <form method="post" class="login-form">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Login</button>
             </form>
+            <a href="{% url 'register' %}" class="register_button">Don't you have an account? Register</a>
         </div>
 
-        <div class="actions">
-            <a href="{% url 'register' %}">Don't have an account? Register</a>
-        </div>
     </div>
 </body>
 </html>

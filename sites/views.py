@@ -6,6 +6,8 @@ from .models import Post, Comment
 from .PostForm import PostForm
 from .CommentForm import CommentForm
 from .forms import PostSearchForm
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import login, logout
 
 def home_page(request):
     form = PostSearchForm(request.GET or None)
@@ -65,6 +67,10 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
+def custom_logout_view(request):
+    logout(request)
+    return redirect('/')
+
 @login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
@@ -88,7 +94,6 @@ def delete_comment(request, comment_id):
         comment.delete()
         return redirect('post_page', post_id=comment.post.id)
     return render(request, 'delete_comment.html', {'comment': comment})
-
 
 # Administator panel
 
