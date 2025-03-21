@@ -16,7 +16,7 @@
             {% if post.image %}
                 <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
             {% endif %}
-            <p style="font-size:12px;">{{ post.created_at }}</p>
+            <p style="font-size:12px;">Post uploaded at: {{ post.created_at }}</p>
         </div>
         
         <h2>Comments</h2>
