@@ -292,6 +292,18 @@ a.add-post-link:hover {
     text-decoration: none;
 }
 
+.comments-actions {
+    display: flex;
+}
+
+.comments-actions a {
+    margin-right: 20px;
+}
+
+.comments-actions a.delete_comment_button {
+    color: red
+}
+
 .hello-user {
     font-size: 32px;
     color: #fff;

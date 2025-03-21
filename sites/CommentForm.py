@@ -8,3 +8,10 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'post': forms.Select(attrs={'class': 'post-select'}),
         }
+    
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(CommentForm, self).__init__(*args, **kwargs)
+        if user and user.is_authenticated:
+            self.fields['name'].widget.attrs['readonly'] = True
+            self.fields['email'].widget.attrs['readonly'] = True

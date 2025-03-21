@@ -28,8 +28,10 @@
                 <p>{{ comment.text }}</p>
                 <p><small>{{ comment.created_at }}</small></p>
                 {% if request.user.is_authenticated and request.user.email == comment.email %}
-                    <a href="{% url 'edit_comment' comment.id %}">Edit</a> |
-                    <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                    <div class="comments-actions">
+                        <a href="{% url 'edit_comment' comment.id %}" class="edit_comment_button">Edit</a>
+                        <a href="{% url 'delete_comment' comment.id %}" class="delete_comment_button">Delete</a>
+                    </div>
                 {% endif %}
             </li>
             {% endfor %}

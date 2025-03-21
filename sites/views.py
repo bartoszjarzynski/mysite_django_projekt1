@@ -36,13 +36,19 @@ def add_post(request):
 def add_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.method == 'POST':
-        form = CommentForm(request.POST)
+        form = CommentForm(request.POST, user=request.user)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.save()
-            return redirect('post_page', post_id=comment.post.id)
+            return redirect('post_page', post_id=post.id)
     else:
-        form = CommentForm(initial={'post': post})
+        initial_data = {}
+        if request.user.is_authenticated:
+            initial_data = {
+                'name': request.user.username,
+                'email': request.user.email,
+            }
+        form = CommentForm(initial=initial_data, user=request.user)
     return render(request, 'add_comment.html', {'form': form, 'post': post})
 
 class UserCreationFormWithEmail(UserCreationForm):
@@ -94,12 +100,12 @@ def edit_comment(request, comment_id):
     if request.user.email != comment.email:
         return redirect('post_page', post_id=comment.post.id)
     if request.method == 'POST':
-        form = CommentForm(request.POST, instance=comment)
+        form = CommentForm(request.POST, instance=comment, user=request.user)
         if form.is_valid():
             form.save()
             return redirect('post_page', post_id=comment.post.id)
     else:
-        form = CommentForm(instance=comment)
+        form = CommentForm(instance=comment, user=request.user)
     return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
 
 @login_required
