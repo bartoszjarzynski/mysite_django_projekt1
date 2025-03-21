@@ -42,10 +42,10 @@ body {
     position: absolute;
 }
 
-.header p {
+.header-name p {
     font-size: 24px;
     color: #fff;
-    margin: 0;
+    margin: 10px 0 0 0; /* Adjust margin to reduce gap */
 }
 
 .header h1 {
@@ -125,7 +125,7 @@ form button {
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the button */
 }
 
 form button:hover {
@@ -199,6 +199,12 @@ form button:hover {
     display: inline-block;
 }
 
+a.add-post-link:hover {
+    text-decoration: none;
+    color: #0056b3;
+    transition: color 0.5s ease;
+}
+
 .post-list {
     list-style-type: none;
     padding: 0;
@@ -236,7 +242,6 @@ form button:hover {
     box-sizing: border-box;
 }
 
-
 .auth-links {
     background: #fff;
     padding: 15px;
@@ -253,8 +258,73 @@ form button:hover {
     margin: 0 10px;
 }
 
+.auth-links a:hover {
+    color: red;
+    text-decoration: none;
+}
+
 .hello-user {
     font-size: 32px;
     color: #fff;
     margin: 0;
+    margin-top: 10px; /* Adjust margin to reduce gap */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .header-name {
+        font-size: 36px;
+    }
+
+    .header-name p {
+        font-size: 18px;
+    }
+
+    .container, .form-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .post-list {
+        width: 100%;
+    }
+
+    .post-list li {
+        padding: 8px;
+    }
+
+    .post-list li a {
+        padding: 8px;
+    }
+
+    form button {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-name {
+        font-size: 28px;
+    }
+
+    .header-name p {
+        font-size: 16px;
+    }
+
+    .container, .form-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .post-list li {
+        padding: 6px;
+    }
+
+    .post-list li a {
+        padding: 6px;
+    }
+
+    form button {
+        width: 100%;
+    }
 }
